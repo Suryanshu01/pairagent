@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+:root {
+  --neon: #00ff9d;
+  --cyan: #00b4ff;
+  --flame: #ff6b00;
+  --violet: #c084fc;
+  --surface: #0a0a0f;
+}
+
+body {
+  background: var(--surface);
+  color: #e0e0e8;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(1); opacity: 0.4; }
+  100% { transform: scale(2.5); opacity: 0; }
+}
+
+@keyframes slide-in {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(0, 255, 157, 0.1); }
+  50% { box-shadow: 0 0 40px rgba(0, 255, 157, 0.25); }
+}
+
+.log-entry {
+  animation: slide-in 0.3s ease-out;
+}
+
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 2px; }

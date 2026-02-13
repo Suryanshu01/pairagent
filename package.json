@@ -1,0 +1,28 @@
+{
+  "name": "pairagent",
+  "version": "1.0.0",
+  "description": "PairAgent — Autonomous IoT Commerce Engine. IoT devices that hire AI agents and pay them via x402.",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "next": "^14.2.0",
+    "react": "^18.3.0",
+    "react-dom": "^18.3.0",
+    "@x402/core": "^2.3.0",
+    "@x402/evm": "^2.3.0",
+    "openai": "^4.70.0",
+    "viem": "^2.21.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.0",
+    "@types/react": "^18.3.0",
+    "@types/node": "^22.0.0",
+    "tailwindcss": "^3.4.0",
+    "postcss": "^8.4.0",
+    "autoprefixer": "^10.4.0"
+  }
+}
