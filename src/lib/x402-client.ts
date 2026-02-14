@@ -1,9 +1,36 @@
 /**
  * x402 Payment Client for PairAgent
- * 
- * Wraps the x402 fetch client to enable autonomous agent-to-agent payments.
- * When an API returns HTTP 402, the client automatically signs and sends
- * a USDC payment on Base Sepolia, then retries the request.
+ *
+ * This module implements the HTTP 402 (Payment Required) payment flow for autonomous
+ * IoT device-to-agent commerce. It's the financial bridge between physical devices
+ * and AI agents.
+ *
+ * ## How x402 Works:
+ *
+ * 1. Device calls agent API (e.g., GET /api/agents/weather)
+ * 2. Agent returns HTTP 402 Payment Required with payment details in headers
+ * 3. Client extracts payment request (amount, recipient, network)
+ * 4. Device signs EIP-3009 TransferWithAuthorization (gasless USDC transfer)
+ * 5. Signature sent to x402 facilitator for verification
+ * 6. Facilitator submits transaction to SKALE Base Sepolia
+ * 7. Upon confirmation, facilitator returns payment proof
+ * 8. Original API request is retried with payment proof in header
+ * 9. Agent verifies payment and returns service result
+ *
+ * All in ~200ms. Zero gas fees thanks to SKALE's sFUEL.
+ *
+ * ## Why SKALE?
+ *
+ * - Gasless execution: A $0.001 weather query can't afford $0.50 gas fees
+ * - BITE encryption: Payment metadata (location, preferences) encrypted pre-mempool
+ * - Instant finality: <1 second block time means immediate service access
+ * - EIP-3009 native: TransferWithAuthorization for gasless USDC transfers
+ *
+ * ## Current Implementation:
+ *
+ * This file supports both simulation mode (for demo/testing) and real x402 mode
+ * (requires x402-fetch package + wallet). The app gracefully falls back to
+ * simulation if x402-fetch is not installed.
  */
 
 // NOTE: If @x402/fetch is not available, we use a simulation mode

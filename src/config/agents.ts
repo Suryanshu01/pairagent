@@ -72,6 +72,14 @@ export const DEVICE_CONFIG = {
   model: "PairAgent EV-X402",
   pairpointId: process.env.NEXT_PUBLIC_PAIRPOINT_DEVICE_ID || "PP-EV-X402-DEMO",
   erc8004Id: process.env.NEXT_PUBLIC_ERC8004_AGENT_ID || "8004",
-  network: "SKALE + Base Sepolia",
+  network: "SKALE Base Sepolia",
+  chainId: 324705682,
   encryption: "BITE Protocol",
 };
+
+// SKALE Base Sepolia Chain Details (for reference)
+// Chain ID: 324705682
+// RPC: https://base-sepolia-testnet.skalenodes.com/v1/jubilant-horrible-ancha
+// USDC: 0x2e08028E3C4c2356572E096d8EF835cD5C6030bD
+// Gas: FREE (sFUEL auto-distributed)
+// BITE: Threshold encryption for payment privacy
